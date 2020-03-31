@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-project-1-stock-exchange",
+  "version": "1.0.0",
+  "description": "Node.js Project 1 Stock Exchange",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kipodd/nodejs-project-1-stock-exchange.git"
+  },
+  "author": "kipodd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kipodd/nodejs-project-1-stock-exchange/issues"
+  },
+  "homepage": "https://github.com/kipodd/nodejs-project-1-stock-exchange#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "nodemon": "^2.0.2"
+  }
+}
