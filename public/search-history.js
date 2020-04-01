@@ -1,0 +1,1 @@
+const password = require(`./password.js`);
