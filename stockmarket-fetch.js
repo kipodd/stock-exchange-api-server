@@ -8,14 +8,14 @@ async function getCompanyProfile(symbol) {
     return await response.json();
 }
 
-async function getCompaniesWithProfiles(query) {
+async function getCompaniesProfiles(query) {
     const companies = await getCompanies(query); // returns a promise
-    const companiesWithProfiles = companies.map(company => {
+    const companiesProfiles = companies.map(company => {
         return getCompanyProfile(company.symbol);
     }); // returns a promise
-    return await Promise.all(companiesWithProfiles);
+    return await Promise.all(companiesProfiles);
 }
 
 
 
-module.exports = {getCompanies, getCompanyProfile, getCompaniesWithProfiles};
+module.exports = {getCompaniesProfiles};
