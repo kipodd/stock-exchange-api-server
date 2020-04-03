@@ -1,3 +1,5 @@
+const fetch = require(`isomorphic-fetch`);
+
 async function getCompanies(query) {
     let response = await fetch(`https://financialmodelingprep.com/api/v3/search?query=${query}&limit=10&exchange=NASDAQ`);
     return await response.json();
@@ -18,4 +20,4 @@ async function getCompaniesProfiles(query) {
 
 
 
-module.exports = {getCompaniesProfiles};
+module.exports = { getCompaniesProfiles };
