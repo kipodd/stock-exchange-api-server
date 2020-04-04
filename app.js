@@ -5,18 +5,19 @@ const MongoClient = require(`mongodb`).MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const password = require(`./password.js`);
 
+// noinspection SpellCheckingInspection
 const uri = `mongodb+srv://kipodd:${password}@cluster0-omfb6.gcp.mongodb.net/test?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-client.connect(err => {
+client.connect(async err => {
     if (!err) {
         console.log("Mongodb connected successfully");
     } else {
         console.log(err);
-        client.close();
+        await client.close();
     }
 });
 
@@ -32,7 +33,7 @@ app.get(`/api/search`, async (req, res) => {
         };
 
         const collection = client.db(`nodejs_itc`).collection(`stocks`);
-        collection.insertOne(data);
+        await collection.insertOne(data);
         res.json(companiesProfiles);
     } else {
         res.status(400).json({ msg: `No query parameter` })
@@ -46,9 +47,9 @@ app.get(`/api/search-history`, (req, res) => {
     });
 });
 
-app.delete('/api/search-history/:id', (req, res) => {
+app.delete('/api/search-history/:id', async (req, res) => {
     const collection = client.db("nodejs_itc").collection("stocks");
-    collection.deleteOne({ "_id": ObjectId(`${req.params.id}`) });
+    await collection.deleteOne({ "_id": ObjectId(`${req.params.id}`) });
     res.json({ msg: `Document ${req.params.id} deleted.` });
 });
 

@@ -12,21 +12,20 @@ async function renderQueryHistory(parentElement, queryHistory, HOSTNAME, PORT) {
                     <span>Query: ${query.query}</span>
                     <span>Date: ${query.date}</span>
                 </a>
-                <button type="button" id="deleteButton${query._id}" class="ml-2 btn btn-outline-danger">Delete</button>
+                <button type="button" id="deleteButton${query._id}" class="btn btn-outline-danger float-right">Delete</button>
             </li>
         `);
         const deleteButton = document.getElementById(`deleteButton${query._id}`);
         deleteButton.addEventListener(`click`, () => {
             deleteDocumentDB(query._id, HOSTNAME, PORT);
-            // renderQueryHistory(parentElement, queryHistory, HOSTNAME, PORT);
             createQueryHistory();
         });
     });
 }
 
 async function deleteDocumentDB(id, HOSTNAME, PORT) {
-    response = await fetch(`http://${HOSTNAME}:${PORT}/api/search-history/${id}`, { method: `DELETE` })
-    data = await response.json();
+    const response = await fetch(`http://${HOSTNAME}:${PORT}/api/search-history/${id}`, { method: `DELETE` });
+    await response.json();
 }
 
 function clearStockList(parentElement) {
@@ -44,4 +43,5 @@ async function createQueryHistory() {
 }
 
 
-createQueryHistory()
+// noinspection JSIgnoredPromiseFromCall
+createQueryHistory();

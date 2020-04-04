@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="express_crash_course" />
     <orderEntry type="module" module-name="ITC" />
+    <orderEntry type="library" name="@types/node" level="application" />
   </component>
 </module>
