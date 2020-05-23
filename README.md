@@ -1,2 +1,2 @@
 # Stock Exchange API Server
-Stock exchange RESTful API server, built with Node.js and Express.js.
+Stock exchange simple RESTful API server. Built with Node, Express and MongoDB.
