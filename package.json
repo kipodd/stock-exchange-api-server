@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/kipodd/nodejs-project-1-stock-exchange#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "isomorphic-fetch": "^2.2.1",
+    "express": "^4.22.0",
+    "isomorphic-fetch": "^3.0.0",
     "mongodb": "^3.5.5",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.22"
   }
 }
